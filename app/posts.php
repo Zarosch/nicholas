@@ -42,10 +42,9 @@ function get_tag_list($tag) {
 // Return an array of posts with front matter parsed
 function get_posts($page = 1, $perPage = null, $tag = null) {
     $frontMatter = new Webuni\FrontMatter\FrontMatter();
-    $config = include('config.php'); 
     
     if ($perPage == null) {
-	    $perPage = $config['posts_per_page'];
+	    $perPage = $GLOBALS['config']['posts_per_page'];
 	}
     
     if ($tag == null) {

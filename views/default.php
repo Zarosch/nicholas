@@ -1,7 +1,7 @@
 <!doctype HTML>
 <html>
 <head>
-	<title><?= $config['blog_name']; ?></title>
+	<title><?= $GLOBALS['config']['blog_name']; ?></title>
 	
 	<style>
 		* {
@@ -46,7 +46,7 @@
 <body>
 	<div id="main">
 		<div class="error">
-	    	<h1><?= $config['blog_name']; ?></h1>
+	    	<h1><?= $GLOBALS['config']['blog_name']; ?></h1>
 	    	<p>Powered by <a href="https://nicholas.adgr.dev/">Nicholas</a> ✨</p>
 		</div>
 	</div>

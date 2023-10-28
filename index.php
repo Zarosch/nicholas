@@ -6,10 +6,10 @@ require_once 'app/plugins.php';
 require_once 'app/generate.php';
 require_once 'app/api.php';
 
-$config = include('config.php');
+$GLOBALS['config'] = include('config.php');
 
 $router = new AltoRouter();
-$router->setBasePath($config['base_url']);
+$router->setBasePath($GLOBALS['config']['base_url']);
 
 /* ============================================
    Plugins
@@ -50,45 +50,41 @@ $router->map('GET','/api/single/', function() {
  ============================================ */
 
 // If the front-end option in config is set to false, skip the loading of frontend functionality
-if(!$config['use_frontend']) {
+if(!$GLOBALS['config']['use_frontend']) {
 	$router->map('GET','/', function() { 
 		require 'views/default.php';
 	});
 } else {
 	require_once 'app/frontend.php';
-	require_once 'themes/' . $config['frontend_theme'] . '/functions.php';
+	require_once 'themes/' . $GLOBALS['config']['frontend_theme'] . '/functions.php';
 	
 	$router->map('GET','/tag/[:tag]/[i:page]?/', function($tag, $page = 1) {
-		$config = include('config.php'); 
-		$posts = get_posts($page, $config['posts_per_page'], $tag);
+		$posts = get_posts($page, $GLOBALS['config']['posts_per_page'], $tag);
 		$tag = str_replace('%20', ' ', $tag);
 		
 		if($posts) {
-			include 'themes/' . $config['frontend_theme'] . '/tag.php';
+			include 'themes/' . $GLOBALS['config']['frontend_theme'] . '/tag.php';
 		} else {
 			error_404();
 		}
 	});
 	
 	$router->map('GET','/[i:page]?/', function($page = 1) {
-		$config = include('config.php'); 
 		$posts = get_posts($page);
 
 		if($posts) {
-			include 'themes/' . $config['frontend_theme'] . '/home.php';
+			include 'themes/' . $GLOBALS['config']['frontend_theme'] . '/home.php';
 		} else {
 			error_404();
 		}
 	});
 	
 	$router->map('GET','/[:slug]/', function($slug) { 
-		$config = include('config.php');
-
 		// If post_base is not active, check posts by slug
-		if(!$config['post_base']) {
+		if(!$GLOBALS['config']['post_base']) {
 			$post = get_single($slug);
 			if($post->title) {
-				include 'themes/' . $config['frontend_theme'] . '/single.php';
+				include 'themes/' . $GLOBALS['config']['frontend_theme'] . '/single.php';
 				return;
 			}
 		}
@@ -96,7 +92,7 @@ if(!$config['use_frontend']) {
 		// If no post was found search for page
 		$page = get_page($slug);
 		if($page->title) {
-			include 'themes/' . $config['frontend_theme'] . '/page.php';
+			include 'themes/' . $GLOBALS['config']['frontend_theme'] . '/page.php';
 			return;
 		}
 
@@ -105,12 +101,11 @@ if(!$config['use_frontend']) {
 	});
 
 	// Must be last to ensure other routes get detected first
-	if($config['post_base']) {
+	if($GLOBALS['config']['post_base']) {
 		$router->map('GET','/[:year]/[:month]/[:slug]/', function($year, $month, $slug) { 
-			$config = include('config.php');
 			$post = get_single($slug, $year, $month);
 			if($post->title) {
-				include 'themes/' . $config['frontend_theme'] . '/single.php';
+				include 'themes/' . $GLOBALS['config']['frontend_theme'] . '/single.php';
 			} else {
 				error_404();	
 			}

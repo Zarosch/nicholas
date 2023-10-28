@@ -7,11 +7,11 @@
 		
 <?php foreach($posts as $post) { ?>		
 	<article class="blog-preview">
-		<a href="<?= $config['base_url'] . '/' . $post->slug; ?>/">
+		<a href="<?= $GLOBALS['config']['base_url'] . '/' . $post->slug; ?>/">
 			<h2><?= $post->title; ?></h2>
 		</a>
 		<p><?= $post->excerpt; ?></p>
-		<p class="small"><?= date($config['date_format'], $post->date); ?> • Filed under <?= display_tag_list($post->tags); ?></p>
+		<p class="small"><?= date($GLOBALS['config']['date_format'], $post->date); ?> • Filed under <?= display_tag_list($post->tags); ?></p>
 	</article>
 <?php } ?>
 

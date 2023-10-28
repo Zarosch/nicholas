@@ -19,8 +19,8 @@
 </head>
 <body>
 	<header class="site-header">
-		<a href="<?= $config['base_url'] ?>/">
-			<div class="logo"><?= substr($config['blog_name'], 0, 1) ?></div> <?= $config['blog_name'] ?>
+		<a href="<?= $GLOBALS['config']['base_url'] ?>/">
+			<div class="logo"><?= substr($GLOBALS['config']['blog_name'], 0, 1) ?></div> <?= $GLOBALS['config']['blog_name'] ?>
 		</a>
 	</header>
 	

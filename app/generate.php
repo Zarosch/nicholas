@@ -17,11 +17,9 @@ function generate_rss($posts) {
     $feed = new Suin\RSSWriter\Feed();
     $channel = new Suin\RSSWriter\Channel();
 
-	$config = include('config.php');
-
     $channel
-        ->title($config['blog_name'])
-        ->description($config['blog_description'])
+        ->title($GLOBALS['config']['blog_name'])
+        ->description($GLOBALS['config']['blog_description'])
         ->appendTo($feed);
 
     foreach($posts as $p){
