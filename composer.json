@@ -3,7 +3,7 @@
         "php": ">=7.0",
         "altorouter/altorouter": "^1.2",
         "symfony/yaml": "^4.2",
-        "webuni/front-matter": "^1.1",
+        "webuni/front-matter": "^1.5",
         "erusev/parsedown": "^1.7",
         "erusev/parsedown-extra": "^0.8.0",
         "suin/php-rss-writer": "^1.6"
