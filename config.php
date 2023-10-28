@@ -39,7 +39,7 @@ return array(
 
 // If your Nicholas installation is not in the web root,
 // enter your folder name here with a preceding slash (eg. /blog)
-'base_url' => '/',
+'base_url' => '',
 
 // Prepend year and month to post URLs to help avoid slug conflicts?
 'post_base' => false
