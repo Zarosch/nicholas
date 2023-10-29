@@ -44,7 +44,9 @@ function get_post_link($post) {
 	return $GLOBALS['config']['base_url']  . '/' . $post_base . $post->slug . '/';
 }
 
-function get_pagination_link($page, $posts, $tag = '') {	
+function get_pagination_link($page, $posts, $tag = '') {
+	$pagination = array("next" => "", "prev" => "");
+
 	if($tag) {
 		$count = count(get_tag_list($tag));
 		$tag = 'tag/' . $tag . '/';	
