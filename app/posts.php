@@ -104,11 +104,11 @@ function get_single($slug, $year = '*', $month = '*') {
 	    $post->date = strtotime(str_replace('posts/','',$arr[0]));
 	    
 		// Get the contents and convert it to HTML
-		$meta = $content->getData();
-		$post->title = $meta['title'] ?? 'No title';
-		$post->image = $meta['image'] ?? '';
-		$post->excerpt = $meta['excerpt'] ?? substr($post->body, 0, 140);
-		$post->tags = array_map('trim', explode(',', $meta['tags'])) ?? ''; // Split tags on comma, trim whitespace
+		$post->meta = $content->getData();
+		$post->title = $post->meta['title'] ?? 'No title';
+		$post->image = $post->meta['image'] ?? '';
+		$post->excerpt = $post->meta['excerpt'] ?? substr($post->body, 0, 140);
+		$post->tags = array_map('trim', explode(',', $post->meta['tags'])) ?? ''; // Split tags on comma, trim whitespace
 		$post->body = convert_markdown($content->getContent());
 	    
 	    return $post;
