@@ -75,13 +75,13 @@ function get_posts($page = 1, $perPage = null, $tag = null) {
 		}
 		
 		// Get the contents and convert it to HTML
-		$meta = $content->getData();
-		$post->title = $meta['title'] ?? 'No title';
+		$post->meta = $content->getData();
+		$post->title = $post->meta['title'] ?? 'No title';
 		$metaContent = $content->getContent();
 		$post->body = $metaContent ? convert_markdown($content->getContent()) : "";
-		$post->image = $meta['image'] ?? '';
-		$post->excerpt = $meta['excerpt'] ?? substr($post->body, 0, 140);
-		$post->tags = array_map('trim', explode(',', $meta['tags'] ?? '')) ?? ''; // Split tags on comma, trim whitespace
+		$post->image = $post->meta['image'] ?? '';
+		$post->excerpt = $post->meta['excerpt'] ?? substr($post->body, 0, 140);
+		$post->tags = array_map('trim', explode(',', $post->meta['tags'] ?? '')) ?? ''; // Split tags on comma, trim whitespace
 		
 		$tmp[] = $post;
     }

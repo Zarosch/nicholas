@@ -21,8 +21,8 @@ function get_page($page) {
 		$content = $frontMatter->parse(file_get_contents($content[0]));
 		
 		// Get the contents and convert it to HTML
-		$meta = $content->getData();
-		$page->title = $meta['title'];
+		$page->meta = $content->getData();
+		$page->title = $page->meta['title'];
 		$page->body = convert_markdown($content->getContent());
 		
 		return $page;
