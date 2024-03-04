@@ -22,6 +22,11 @@
 		<a href="<?= $GLOBALS['config']['base_url'] ?>/">
 			<div class="logo"><?= substr($GLOBALS['config']['blog_name'], 0, 1) ?></div> <?= $GLOBALS['config']['blog_name'] ?>
 		</a>
+		<nav>
+			<?php foreach($GLOBALS['config']['menus']['header'] as $label => $link) { ?>
+				<a href="<?= $link ?>"><?= $label ?></a>
+			<?php } ?>
+		</nav>
 	</header>
 	
 	<main class="container">

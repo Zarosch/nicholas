@@ -33,6 +33,13 @@ return array(
 // Page title seperator
 'title_seperator' => '|',
 
+// Navigation
+'menus' => array(
+  'header' => array(
+    'About' => "/about/"
+  )
+),
+
 /* ============================================
    Advanced Settings
  ============================================ */
