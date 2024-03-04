@@ -83,7 +83,7 @@ if(!$GLOBALS['config']['use_frontend']) {
 		// If post_base is not active, check posts by slug
 		if(!$GLOBALS['config']['post_base']) {
 			$post = get_single($slug);
-			if($post->title) {
+			if($post) {
 				include 'themes/' . $GLOBALS['config']['frontend_theme'] . '/single.php';
 				return;
 			}

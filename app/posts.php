@@ -113,4 +113,5 @@ function get_single($slug, $year = '*', $month = '*') {
 	    
 	    return $post;
     }
+	return false;
 }
