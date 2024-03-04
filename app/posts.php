@@ -96,7 +96,7 @@ function get_single($slug, $year = '*', $month = '*') {
 	
 	$single = get_post_list($slug, $date);
 	
-	if($single[0]) { // Check post exists
+	if(!empty($single)) { // Check post exists
 	    $post = new stdClass;
 	    $content = $frontMatter->parse(file_get_contents($single[0]));
 	    
