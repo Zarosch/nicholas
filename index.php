@@ -91,7 +91,7 @@ if(!$GLOBALS['config']['use_frontend']) {
 
 		// If no post was found search for page
 		$page = get_page($slug);
-		if($page->title) {
+		if($page) {
 			include 'themes/' . $GLOBALS['config']['frontend_theme'] . '/page.php';
 			return;
 		}

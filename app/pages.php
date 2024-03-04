@@ -27,4 +27,5 @@ function get_page($page) {
 		
 		return $page;
 	}
+	return false;
 }
