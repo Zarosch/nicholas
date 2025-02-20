@@ -2,13 +2,7 @@
 
 function error_404() {
 	header("HTTP/1.0 404 Not Found");
-	
-	// If there's a custom 404 template in the theme, use that, if not, use default
-	if($GLOBALS['config']['use_frontend'] && file_exists('themes/' . $GLOBALS['config']['frontend_theme'] . '/404.php')) {
-		require 'themes/' . $GLOBALS['config']['frontend_theme'] . '/404.php';
-	} else {
-		require 'views/404.php';
-	}
+	require 'themes/' . $GLOBALS['config']['frontend_theme'] . '/404.php';
 }
 
 function get_theme_directory_url() {	

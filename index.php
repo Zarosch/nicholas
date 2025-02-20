@@ -52,7 +52,7 @@ $router->map('GET','/api/single/', function() {
 // If the front-end option in config is set to false, skip the loading of frontend functionality
 if(!$GLOBALS['config']['use_frontend']) {
 	$router->map('GET','/', function() { 
-		require 'views/default.php';
+		require 'themes/' . $GLOBALS['config']['frontend_theme'] . '/default.php';
 	});
 } else {
 	require_once 'app/frontend.php';
