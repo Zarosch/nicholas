@@ -6,7 +6,7 @@ return array(
  ============================================ */
 
 // Posts per page
-'posts_per_page' => 4,
+'posts_per_page' => 30,
 
 // The direct URL to your blog without a trailing slash (eg. https://adgr.dev or https://adgr.dev/blog)
 'blog_url' => '',
