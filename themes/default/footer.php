@@ -2,8 +2,9 @@
 	
 	<footer class="site-footer">
 	    <nav>
-			<a href="<?= $GLOBALS['config']['base_url'] ?>/rss/">RSS</a> 
-			<a href="<?= $GLOBALS['config']['base_url'] ?>/json/">JSON</a>
+			<?php foreach($GLOBALS['config']['menus']['footer'] as $label => $link) { ?>
+				<a href="<?= $link ?>"><?= $label ?></a>
+			<?php } ?>
 	    </nav>
 	    <p>
 		    Powered by <a href="https://nicholas.adgr.dev/" target="_blank">Nicholas</a> ✨

@@ -37,6 +37,10 @@ return array(
 'menus' => array(
   'header' => array(
     'About' => "/about/"
+  ),
+  "footer" => array(
+    "RSS" => "/rss/",
+    "JSON" => "/json/"
   )
 ),
 
